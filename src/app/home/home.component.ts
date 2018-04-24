@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 export class HomeComponent implements OnInit {
 
   data;
+
   city;
   country;
 
@@ -18,13 +19,13 @@ export class HomeComponent implements OnInit {
   }
 
   getWeatherBtn() {
-    console.log(this.country);
-    console.log(this.city);
     this.apiService.getWeather(this.city, this.country).subscribe(res => {
       console.log(res.status);
       console.log(res.json().weather[0].description);
       this.data = res.json().weather[0].description;
     });
+
+    console.log('weather btn presed');
 
 
   }
